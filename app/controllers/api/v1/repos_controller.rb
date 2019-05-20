@@ -1,9 +1,9 @@
-require 'net/http'
+# frozen_string_literal: true
 
 class Api::V1::ReposController < ApplicationController
   def index
-    uri = URI("https://api.github.com/users/#{params[:username]}/repos")
-    res = Net::HTTP.get_response(uri)
+    url = GithubCalls.public_repos_url_for(username)
+    res = Net::HTTP.get_response(URI(url))
     render json: res.body, status: :ok
   end
 end
