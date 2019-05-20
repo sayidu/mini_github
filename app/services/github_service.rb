@@ -1,10 +1,11 @@
-class GithubCaller
+class GithubService
   class << self
-    def public_repos_url_for(username)
-      URI("#{github_client}/users/#{username}/repos")
+    def repos(username)
+      uri = URI("#{github_client}/users/#{username}/repos")
+      Net::HTTP.get_response(uri)
     end
 
-    def create_repo_for_(access_token)
+    def create(access_token)
       URI("#{github_client}/user/repos?access_token=#{access_token}")
     end
 
