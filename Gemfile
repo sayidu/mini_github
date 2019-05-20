@@ -8,9 +8,11 @@ end
 gem 'active_model_serializers', '~> 0.8.0'
 gem 'puma', '~> 3.7'
 gem 'rails', '~> 5.1.7'
+gem 'sqlite3'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'dotenv-rails'
   gem 'pry-rails'
   gem 'rspec-rails', '~> 3.5'
 end
