@@ -2,16 +2,6 @@ require 'webmock/rspec'
 WebMock.disable_net_connect!(allow_localhost: true)
 
 RSpec.configure do |config|
-  config.before(:each) do
-    stub_request(:get, ENV['GITHUB_API_HOST']).with(
-      headers: {
-        'Accept' => '*/*', 'User-Agent' => 'Ruby'
-      }
-    ).to_return(
-      status: 200, body: 'stubbed response', headers: {}
-    )
-  end
-
   config.expect_with :rspec do |expectations|
     # This option will default to `true` in RSpec 4. It makes the `description`
     # and `failure_message` of custom matchers include text for helper methods

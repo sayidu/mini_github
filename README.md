@@ -1,4 +1,4 @@
-*Create a Basic Rails API App that;*
+# A Rails API
 
 1. LISTS ALL public repos for a user from GitHub
 2. CREATES a Repo in LOCALHOST and Syncs the Repo on a users GitHub account
@@ -6,7 +6,11 @@
 4. Can DELETE a repo from a user’s repos (Bonus)
 5. Can TRANSFER repo ownership from one user to another
 
-*Instructions*
+# Postman Documentation
+
+[View API Documentation](https://documenter.getpostman.com/view/7595400/S1TN6LpD?version=latest)
+
+# Instructions
 
 1. Create a rails-api only App
 2. Try to have it versioned
