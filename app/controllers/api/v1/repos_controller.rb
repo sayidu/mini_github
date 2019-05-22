@@ -1,20 +1,20 @@
 class Api::V1::ReposController < ApplicationController
   def index
-    response = GithubService.repos(params[:username])
+    response = GithubRequestsJob.perform_now('repos', params[:username])
     render json: response.body, status: response.code
   rescue StandardError => e
     render json: e, status: :unprocessable_entity
   end
 
   def create
-    response = GithubService.create_repo(params[:repo])
+    response = GithubRequestsJob.perform_now('create_repo', params[:repo])
     render json: response.body, status: response.code
   rescue StandardError => e
     render json: e.errors, status: :unprocessable_entity
   end
 
   def destroy
-    response = GithubService.delete_repo(params)
+    response = GithubRequestsJob.perform_now('delete_repo', params)
     render json: response.body, status: response.code
   rescue StandardError => e
     render json: e, status: response
